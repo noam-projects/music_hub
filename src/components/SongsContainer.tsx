@@ -68,7 +68,7 @@ function SongsContainer() {
                 {database.map((item)=>
                 {
                     //return <AudioCard src={item.song_path}></AudioCard>
-                    return <AudioCard src={"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"}></AudioCard>
+                    return <AudioCard src={item.song_path}></AudioCard>
                 }
                 )}
             </Stack>
