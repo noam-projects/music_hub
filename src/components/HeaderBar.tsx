@@ -27,7 +27,7 @@ function HeaderBar() {
     };
     return (
         <AppBar position="static" sx={{ margin: '0' }}>
-            <Container maxWidth={false}>
+            <Container maxWidth={false} sx={{width:'100%'}}>
                 <Toolbar disableGutters>
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                         <Avatar src={logo}> </Avatar>
@@ -51,7 +51,7 @@ function HeaderBar() {
                     >
                         Music Hub
                     </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'flex ', md: 'none' } }}>
                         <IconButton
                             size="large"
                             onClick={handleOpenNavMenu}
@@ -111,7 +111,32 @@ function HeaderBar() {
                         Music Hub
                     </Typography>
                     <Stack width='100%' alignItems='center'>
-                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                        <Box sx={{ alignItems:'flex-end',flexGrow: 1, display: { xs: 'none', md: 'flex',lg:'none' } }}>
+                            <Button
+                                key={0}
+                                onClick={() => navigate("/")}
+                                sx={{ my: 2, color: 'white', display: 'block' }}
+                            >
+                                HOME
+                            </Button>
+                            <Button
+                                key={1}
+                                onClick={() => navigate('/player')}
+                                sx={{ my: 2, color: 'white', display: 'block' }}
+                            >
+                                PLAYER
+                            </Button>
+                            <Button
+                                key={2}
+                                onClick={() => navigate('/contact')}
+                                sx={{ my: 2, color: 'white', display: 'block' }}
+                            >
+                                Contact
+                            </Button>
+                        </Box>
+                    </Stack>
+                    <Stack width='100%' alignItems='center'>
+                        <Box sx={{alignItems:'flex-end', flexGrow: 1, display: { xs: 'none', md: 'none',lg:'flex' } }}>
                             <Button
                                 key={0}
                                 onClick={() => navigate("/")}
