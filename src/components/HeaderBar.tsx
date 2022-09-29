@@ -26,7 +26,7 @@ function HeaderBar() {
         setAnchorElNav(null);
     };
     return (
-        <AppBar position="static" sx={{ margin: '0' }}>
+        <AppBar position="fixed" sx={{ margin: '0' }}>
             <Container maxWidth={false} sx={{width:'100%'}}>
                 <Toolbar disableGutters>
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>

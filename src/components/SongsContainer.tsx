@@ -17,7 +17,7 @@ function SongsContainer() {
     };
     const drawer = (
         <Box display='flex' flexDirection='column'>
-            <Typography sx={{ mb: 5, color: '#fff', fontSize: '30px', textAlign: 'center' }}>Select genres to filter</Typography>
+            <Typography sx={{ mt:8, mb: 5, color: '#fff', fontSize: '30px', textAlign: 'center' }}>Select genres to filter</Typography>
             <GenreItem label_name='Rock' change_state_function={() => setRock(!rock)}></GenreItem>
         </Box>
     )
@@ -27,7 +27,7 @@ function SongsContainer() {
                 width: { sm: `calc(100% - ${drawerWidth}px)` },
                 ml: { sm: `${drawerWidth}px` }
             }}>
-                <Button sx={{ mr: 2, display: { sm: 'none' } }} variant="contained" onClick={handleDrawerToggle}>click here to open drawer</Button>
+                <Button sx={{mt:8, mr: 2, display: { sm: 'none' } }} variant="contained" onClick={handleDrawerToggle}>click here to open drawer</Button>
             </Box>
             <Box sx={{
                 width: { sm: `calc(100% - ${drawerWidth}px)` },
@@ -64,11 +64,18 @@ function SongsContainer() {
                     </Drawer>
                 </Box>
             </Box>
-            <Stack direction='column' sx={{width:{xs:'100vw',sm:'calc(100vw - 240px)'}}}>
+            <Stack direction='column' sx={{width:{xs:'100vw',sm:'calc(100vw - 240px)'},mt:{xs:3,sm:8}}}>
                 {database.map((item)=>
                 {
-                    //return <AudioCard src={item.song_path}></AudioCard>
-                    return <AudioCard src={item.song_path}></AudioCard>
+                    return(
+                        <Box>
+                            <Stack direction='row' justifyContent='space-between' sx={{mt:1,mr:{xl:2}}}>
+                                <Typography variant="h6" sx={{ fontWeight: 700,letterSpacing: '0.2rem',fontFamily: 'monospace',ml:3,mt:5}}>{item.song_name}</Typography>
+                                <img alt='song pic' width='100vw' height='100vh' src={item.thumbnail_path}></img>
+                            </Stack>
+                     <AudioCard src={item.song_path}></AudioCard>
+                     </Box>
+                    )
                 }
                 )}
             </Stack>
