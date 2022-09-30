@@ -7,4 +7,5 @@ export type SongItemType={
     song_path:string;
     thumbnail_path:string;
     song_length:number;
+    genre:string;
 }

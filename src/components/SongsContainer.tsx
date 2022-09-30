@@ -12,14 +12,31 @@ const drawerWidth = 240;
 
 function SongsContainer() {
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [rock, setRock] = useState(false);
+    const [abstract, setAbstract] = useState(false);
+    const [epic, setEpic] = useState(false)
+    const [nature, setNature] = useState(false)
+    const nothing_is_selected: boolean = ((abstract === false) && (epic === false) && (nature === false))
+    let selected_genres: string[] = []
+    if (abstract)
+        selected_genres.push('abstract')
+    if (epic)
+        selected_genres.push('epic')
+    if (nature)
+        selected_genres.push('nature')
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
     const drawer = (
-        <Box display='flex' flexDirection='column'>
-            <Typography sx={{ mt: 8, mb: 5, color: '#fff', fontSize: '30px', textAlign: 'center' }}>Select genres to filter</Typography>
-            <GenreItem label_name='Rock' change_state_function={() => setRock(!rock)}></GenreItem>
+        <Box>
+            <Box display='flex' flexDirection='column'>
+                <Typography sx={{ mt: 8, mb: 5, color: '#fff', fontSize: '30px', textAlign: 'center' }}>Select genres to filter</Typography>
+                <GenreItem label_name='Abstract' change_state_function={() => setAbstract(!abstract)}></GenreItem>
+                <GenreItem label_name='Epic' change_state_function={() => setEpic(!epic)}></GenreItem>
+                <GenreItem label_name='Nature' change_state_function={() => setNature(!nature)}></GenreItem>
+            </Box>
+            <Box display='flex' flexDirection='column'>
+                <Typography sx={{ mt: 2, color: '#fff', fontSize: '30px', textAlign: 'center' }}>Select song duration</Typography>
+            </Box>
         </Box>
     )
     return (
@@ -68,7 +85,7 @@ function SongsContainer() {
             <Stack direction='column' sx={{ width: { xs: '100vw', sm: 'calc(100vw - 240px)' }, mt: { xs: 3, sm: 8 } }}>
                 {database.map((item, index) => {
                     return (
-                        <Box key={index}>
+                        (nothing_is_selected || selected_genres.includes(item.genre)) ? <Box key={index}>
                             <Stack direction='row' justifyContent='space-between' sx={{ mt: 1, mr: { xl: 2 } }}>
                                 <Typography variant="h6" sx={{ fontWeight: 700, letterSpacing: '0.2rem', fontFamily: 'monospace', ml: 3, mt: 5 }}>
                                     {item.song_name}
@@ -81,7 +98,7 @@ function SongsContainer() {
                                 <img alt='song pic' width='100vw' height='100vh' src={item.thumbnail_path}></img>
                             </Stack>
                             <AudioCard src={item.song_path}></AudioCard>
-                        </Box>
+                        </Box> : null
                     )
                 }
                 )}

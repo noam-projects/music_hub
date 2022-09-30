@@ -18,13 +18,13 @@ import lofi_study_pic from './songs_thumbnails/lofi_study.jpg'
 import melody_of_nature_main from './songs/nature/melody_of_nature_main.mp3'
 import melody_of_nature_main_pic from './songs_thumbnails/melody_of_nature_main.jpg'
 export const database: SongItemType[] = [
-    { song_name: 'chill abstract', song_path: chill_abstract, thumbnail_path: chill_abstract_pic, song_length: 88 },
-    { song_name: 'jazzy abstract beat', song_path: jazzy_abstract_beat, thumbnail_path: jazzy_abstract_beat_pic, song_length: 88 },
-    { song_name: 'order', song_path: order, thumbnail_path: order_pic, song_length: 104 },
-    { song_name: 'leonell cassio the blackest', song_path: leonell_cassio_the_blackest_bouquet, thumbnail_path: leonell_cassio_the_blackest_bouquet_pic, song_length: 221 },
-    { song_name: 'price of freedom', song_path: price_of_freedom, thumbnail_path: price_of_freedom_pic, song_length: 307 },
-    { song_name: 'the introvert michael', song_path: the_introvert_michael_kobrin, thumbnail_path: the_introvert_michael_kobrin_pic, song_length: 139 },
-    { song_name: 'cinematic documentary', song_path: cinematic_documentary, thumbnail_path: cinematic_documentary_pic, song_length: 131 },
-    { song_name: 'lofi study', song_path: lofi_study, thumbnail_path: lofi_study_pic, song_length: 147 },
-    { song_name: 'melody of nature main', song_path: melody_of_nature_main, thumbnail_path: melody_of_nature_main_pic, song_length: 181 }
+    { song_name: 'chill abstract', song_path: chill_abstract, thumbnail_path: chill_abstract_pic, song_length: 88 ,genre:'abstract'},
+    { song_name: 'jazzy abstract beat', song_path: jazzy_abstract_beat, thumbnail_path: jazzy_abstract_beat_pic, song_length: 88,genre:'abstract' },
+    { song_name: 'order', song_path: order, thumbnail_path: order_pic, song_length: 104,genre:'abstract' },
+    { song_name: 'leonell cassio the blackest', song_path: leonell_cassio_the_blackest_bouquet, thumbnail_path: leonell_cassio_the_blackest_bouquet_pic, song_length: 221,genre:'epic' },
+    { song_name: 'price of freedom', song_path: price_of_freedom, thumbnail_path: price_of_freedom_pic, song_length: 307,genre:'epic' },
+    { song_name: 'the introvert michael', song_path: the_introvert_michael_kobrin, thumbnail_path: the_introvert_michael_kobrin_pic, song_length: 139,genre:'epic' },
+    { song_name: 'cinematic documentary', song_path: cinematic_documentary, thumbnail_path: cinematic_documentary_pic, song_length: 131,genre:'nature' },
+    { song_name: 'lofi study', song_path: lofi_study, thumbnail_path: lofi_study_pic, song_length: 147,genre:'nature' },
+    { song_name: 'melody of nature main', song_path: melody_of_nature_main, thumbnail_path: melody_of_nature_main_pic, song_length: 181,genre:'nature' }
 ]
