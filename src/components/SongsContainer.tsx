@@ -8,6 +8,7 @@ import { database } from '../resources/database'
 import { Stack } from '@mui/material'
 import { AudioCard } from 'material-ui-player'
 import CloudDownloadOutlinedIcon from '@mui/icons-material/CloudDownloadOutlined';
+import MultipleSelectCheckmarks from './MultipleSelectCheckmarks'
 const drawerWidth = 240;
 
 function SongsContainer() {
@@ -36,10 +37,11 @@ function SongsContainer() {
             </Box>
             <Box display='flex' flexDirection='column'>
                 <Typography sx={{ mt: 2, color: '#fff', fontSize: '30px', textAlign: 'center' }}>Select song duration</Typography>
+                <MultipleSelectCheckmarks></MultipleSelectCheckmarks>
             </Box>
         </Box>
     )
-    return (
+    return (    
         <Box width='100vw' sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
             <Box sx={{
                 width: { sm: `calc(100% - ${drawerWidth}px)` },
