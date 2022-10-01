@@ -22,11 +22,10 @@ const durations = [
   'less than 1 min',
   '1 min to 2 min',
   '2 min to 3 min',
-  'more than 4 min'
+  'more than 3 min'
 ];
 
 export default function MultipleSelectCheckmarks(props:FormControlProps) {
-  const [songduration, setSongdurations] = React.useState<string[]>([]);
   const globaldurations=useContext(MusicContext)
   const duration=globaldurations?.durations
   const setduration=globaldurations?.setDurations

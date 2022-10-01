@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState,useContext } from 'react'
 import { Box } from '@mui/material'
 import { Button } from '@mui/material'
 import { Drawer } from '@mui/material'
@@ -9,6 +9,7 @@ import { Stack } from '@mui/material'
 import { AudioCard } from 'material-ui-player'
 import CloudDownloadOutlinedIcon from '@mui/icons-material/CloudDownloadOutlined';
 import MultipleSelectCheckmarks from './MultipleSelectCheckmarks'
+import { MusicContext } from '../GolbalState'
 const drawerWidth = 240;
 
 function SongsContainer() {
@@ -17,6 +18,8 @@ function SongsContainer() {
     const [epic, setEpic] = useState(false)
     const [nature, setNature] = useState(false)
     const nothing_is_selected: boolean = ((abstract === false) && (epic === false) && (nature === false))
+    const music_context=useContext(MusicContext)
+    const durations=music_context?.durations
     let selected_genres: string[] = []
     if (abstract)
         selected_genres.push('abstract')
@@ -87,7 +90,13 @@ function SongsContainer() {
             <Stack direction='column' sx={{ width: { xs: '100vw', sm: 'calc(100vw - 240px)' }, mt: { xs: 3, sm: 8 } }}>
                 {database.map((item, index) => {
                     return (
-                        (nothing_is_selected || selected_genres.includes(item.genre)) ? <Box key={index}>
+                        ((nothing_is_selected || selected_genres.includes(item.genre)) && 
+                        (durations?.length===0 || 
+                        (item.song_length<60 && durations?.includes("less than 1 min"))||
+                        ((item.song_length>=60 && item.song_length<120) &&  durations?.includes("1 min to 2 min"))||
+                        ((item.song_length>=120 && item.song_length<180) &&  durations?.includes("2 min to 3 min"))||
+                        (item.song_length>=180 && durations?.includes("more than 3 min"))
+                        )) ? <Box key={index}>
                             <Stack direction='row' justifyContent='space-between' sx={{ mt: 1, mr: { xl: 2 } }}>
                                 <Typography variant="h6" sx={{ fontWeight: 700, letterSpacing: '0.2rem', fontFamily: 'monospace', ml: 3, mt: 5 }}>
                                     {item.song_name}
