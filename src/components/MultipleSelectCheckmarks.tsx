@@ -30,26 +30,28 @@ export default function MultipleSelectCheckmarks(props:FormControlProps) {
   const globaldurations=useContext(MusicContext)
   const duration=globaldurations?.durations
   const setduration=globaldurations?.setDurations
-  const handleChange = (event: SelectChangeEvent<typeof songduration>) => {
+  const handleChange = (event: SelectChangeEvent<typeof duration>) => {
     const {
       target: { value },
     } = event;
-    setSongdurations(
-      // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value,
-    );
-  };
-
+    if(setduration!==undefined)
+    {
+    if(value===undefined) 
+    setduration([])
+    else
+    setduration(typeof value === 'string' ? value.split(',') : value)
+    }
+  }
   return (
     <div>
       <FormControl sx={{ m: 1, width: 220 }}  >
         <Select sx={{bgcolor:'#fff'}}
         displayEmpty
           multiple
-          value={songduration}
+          value={duration || []}
           onChange={handleChange}
           renderValue={(selected) => {
-            if (selected.length === 0) {
+            if (selected? selected.length===0 : true) {
               return <b>Select songs duration</b>;
             }
             return selected.join(', ');
@@ -59,7 +61,7 @@ export default function MultipleSelectCheckmarks(props:FormControlProps) {
          
           {durations.map((item:string) => (
             <MenuItem key={item} value={item}>
-              <Checkbox checked={songduration.indexOf(item) > -1} />
+              <Checkbox checked={duration ? duration.indexOf(item) > -1 : false}/>
               <ListItemText primary={item} />
             </MenuItem>
           ))}

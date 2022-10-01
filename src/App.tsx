@@ -5,14 +5,14 @@ import Player from "./pages/Player";
 import Contact from "./pages/Contact";
 function App() {
   return (
-    <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<HomePage/>}></Route>
-      <Route path="/contact" element={<Contact/>}></Route>
-      <Route path="/player" element={<Player/>}></Route>
-      <Route path="*" element={<NoMatch />} />
-    </Routes>
-  </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<HomePage />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
+          <Route path="/player" element={<Player />}></Route>
+          <Route path="*" element={<NoMatch />} />
+        </Routes>
+      </BrowserRouter>
   );
 }
 
