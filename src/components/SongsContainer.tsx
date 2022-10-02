@@ -50,7 +50,7 @@ function SongsContainer() {
                 width: { sm: `calc(100% - ${drawerWidth}px)` },
                 ml: { sm: `${drawerWidth}px` }
             }}>
-                <Button sx={{ mt: 8, mr: 2, display: { sm: 'none' } }} variant="contained" onClick={handleDrawerToggle}>click here to open drawer</Button>
+                <Button sx={{width:'100vw', mt: 10, display: { sm: 'none' } }} variant="contained" onClick={handleDrawerToggle}>click here filter songs</Button>
             </Box>
             <Box sx={{
                 width: { sm: `calc(100% - ${drawerWidth}px)` },

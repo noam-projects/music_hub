@@ -19,7 +19,7 @@ function HomePage() {
         }}
       >
         <Box component="header" maxWidth='100%' >
-          <HeaderBar />
+          <HeaderBar pos='fixed' />
         </Box>
         <Box component="main" maxWidth='100%'>
           <SongsContainer />

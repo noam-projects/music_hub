@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from '@mui/material'
 import { Stack } from '@mui/material'
 
-function HeaderBar() {
+function HeaderBar(props:{pos:'fixed'|'relative'}) {
     const navigate = useNavigate();
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
         null
@@ -26,11 +26,13 @@ function HeaderBar() {
         setAnchorElNav(null);
     };
     return (
-        <AppBar position="fixed" sx={{ margin: '0' }}>
+        <AppBar position={props.pos} sx={{ margin: '0' }}>
             <Container maxWidth={false} sx={{width:'100%'}}>
                 <Toolbar disableGutters>
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                        <a href='/'>
                         <Avatar src={logo}> </Avatar>
+                        </a>
                     </Box>
                     <Typography
                         variant="h5"
@@ -89,7 +91,9 @@ function HeaderBar() {
                         </Menu>
                     </Box>
                     <Box sx={{ display: { xs: 'flex', md: 'none', mr: 2 } }}>
+                    <a href='/'>
                         <Avatar src={logo}> </Avatar>
+                        </a>
                     </Box>
                     <Typography
                         variant="h5"
