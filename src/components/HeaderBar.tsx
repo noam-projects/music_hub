@@ -82,9 +82,6 @@ function HeaderBar(props:{pos:'fixed'|'relative'}) {
                             <MenuItem key={0} onClick={() => navigate("/")}>
                                 <Typography>Home</Typography>
                             </MenuItem>
-                            <MenuItem key={1} onClick={() => navigate('/player')}>
-                                <Typography>Player</Typography>
-                            </MenuItem>
                             <MenuItem key={2} onClick={() => navigate('/contact')}>
                                 <Typography>Contact Us</Typography>
                             </MenuItem>
@@ -124,13 +121,6 @@ function HeaderBar(props:{pos:'fixed'|'relative'}) {
                                 HOME
                             </Button>
                             <Button
-                                key={1}
-                                onClick={() => navigate('/player')}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                            >
-                                PLAYER
-                            </Button>
-                            <Button
                                 key={2}
                                 onClick={() => navigate('/contact')}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
@@ -147,13 +137,6 @@ function HeaderBar(props:{pos:'fixed'|'relative'}) {
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
                                 HOME
-                            </Button>
-                            <Button
-                                key={1}
-                                onClick={() => navigate('/player')}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                            >
-                                PLAYER
                             </Button>
                             <Button
                                 key={2}
